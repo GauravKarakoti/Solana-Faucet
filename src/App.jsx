@@ -13,9 +13,18 @@ function App() {
     <ConnectionProvider endpoint={`https://solana-devnet.g.alchemy.com/v2/${import.meta.env.VITE_ALCHEMY_API_KEY}`}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton></WalletMultiButton>
-          <WalletDisconnectButton></WalletDisconnectButton>
-          <Airdrop></Airdrop>
+          <div className="container">
+            <header className="header">
+              <h1>Solana Faucet</h1>
+              <div className="wallet-buttons">
+                <WalletMultiButton />
+                <WalletDisconnectButton />
+              </div>
+            </header>
+            <main className="main-content">
+              <Airdrop />
+            </main>
+          </div>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
