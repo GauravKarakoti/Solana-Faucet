@@ -13,7 +13,7 @@ export default function showBalance() {
         getMeUserBalance();
     }, [wallet, connection]);
     return (
-        <div className="balance-container">
+        <div className="card">
             <h2>Wallet Balance</h2>
             <div className="balance-value">
                 <span id="balance">0</span> <span>SOL</span>

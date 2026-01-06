@@ -22,7 +22,7 @@ function App() {
                 <WalletDisconnectButton />
               </div>
             </header>
-            <main style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "column"}} className="main-content">
+            <main style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "column", gap: "2rem"}}>
               <Airdrop />
               <ShowBalance />
             </main>

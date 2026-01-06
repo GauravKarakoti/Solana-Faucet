@@ -23,9 +23,11 @@ export default function Airdrop() {
         alert("Airdropped SOL");
     }
     return (
-        <div className="airdrop-container">
-            <h2>Request Airdrop</h2>
-            <p>Enter the amount of SOL you want to receive on Devnet.</p>
+        <div className="card">
+            <div>
+                <h2>Request Airdrop</h2>
+                <p>Enter the amount of SOL you want to receive on Devnet.</p>
+            </div>
             <div className="input-group">
                 <input 
                     id="publicKey" 
@@ -33,17 +35,17 @@ export default function Airdrop() {
                     placeholder="Amount (e.g., 1)" 
                     className="amount-input"
                 />
-                <button onClick={sendAirdropToUser} className="action-button" disabled={!isVerified} style={{ 
-                    opacity: isVerified ? 1 : 0.6, 
-                    cursor: isVerified ? 'pointer' : 'not-allowed' 
-                }}>
-                    Send Airdrop
-                </button>
             </div>
+            <button onClick={sendAirdropToUser} className="action-button" disabled={!isVerified} style={{ 
+                opacity: isVerified ? 1 : 0.6, 
+                cursor: isVerified ? 'pointer' : 'not-allowed' 
+            }}>
+                Send Airdrop
+            </button>
             {!isVerified ? (
                 <SignMessage onVerificationSuccess={() => setIsVerified(true)} />
             ) : (
-                <div style={{ marginTop: '10px', color: '#4ade80' }}>
+                <div style={{ marginTop: '1rem' }} className="verified-badge">
                     ✅ Wallet Verified
                 </div>
             )}

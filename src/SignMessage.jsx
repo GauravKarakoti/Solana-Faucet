@@ -22,8 +22,8 @@ export default function SignMessage({ onVerificationSuccess }) {
         }
     }
     return (
-        <div>
-            <button onClick={onClick}>
+        <div className="sign-message-container">
+            <button onClick={onClick} className="action-button" style={{background: 'transparent', border: '1px solid var(--primary-color)', color: 'var(--primary-color)'}}>
                 Verify Wallet Ownership
             </button>
         </div>
