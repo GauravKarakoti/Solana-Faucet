@@ -1,6 +1,7 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import SignMessage from "./SignMessage";
+import { useState } from "react";
 
 // components in react are very similar to creating your own HTML tags
 // The useWallet hook provides the wallet variable inside the Airdrop Component
@@ -9,6 +10,7 @@ export default function Airdrop() {
     // hooks in react
     const wallet = useWallet();
     const { connection } = useConnection();
+    const [isVerified, setIsVerified] = useState(false);
     // defining the function inside the component body
     async function sendAirdropToUser() {
         const publicKey = wallet.publicKey
@@ -31,11 +33,20 @@ export default function Airdrop() {
                     placeholder="Amount (e.g., 1)" 
                     className="amount-input"
                 />
-                <button onClick={sendAirdropToUser} className="action-button">
+                <button onClick={sendAirdropToUser} className="action-button" disabled={!isVerified} style={{ 
+                    opacity: isVerified ? 1 : 0.6, 
+                    cursor: isVerified ? 'pointer' : 'not-allowed' 
+                }}>
                     Send Airdrop
                 </button>
             </div>
-            <SignMessage />
+            {!isVerified ? (
+                <SignMessage onVerificationSuccess={() => setIsVerified(true)} />
+            ) : (
+                <div style={{ marginTop: '10px', color: '#4ade80' }}>
+                    ✅ Wallet Verified
+                </div>
+            )}
         </div>
     )
 }
