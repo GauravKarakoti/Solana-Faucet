@@ -1,5 +1,6 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import SignMessage from "./SignMessage";
 
 // components in react are very similar to creating your own HTML tags
 // The useWallet hook provides the wallet variable inside the Airdrop Component
@@ -34,6 +35,7 @@ export default function Airdrop() {
                     Send Airdrop
                 </button>
             </div>
+            <SignMessage />
         </div>
     )
 }
