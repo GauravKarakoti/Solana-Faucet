@@ -81,6 +81,19 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.balance-container {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.balance-container h2 {
+  margin: 0 auto;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -120,4 +133,17 @@ body {
 
 .action-button:active {
   transform: scale(0.98);
+}
+
+.main-content {
+  align-items: center;
+  gap: 2rem;
+}
+
+.balance-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 0;
+  text-shadow: 0 0 20px rgba(20, 241, 149, 0.2);
 }

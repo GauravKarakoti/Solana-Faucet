@@ -22,9 +22,9 @@ function App() {
                 <WalletDisconnectButton />
               </div>
             </header>
-            <main style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "column"}}>
+            <main style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "column"}} className="main-content">
               <Airdrop />
-              <ShowBalance></ShowBalance>
+              <ShowBalance />
             </main>
           </div>
         </WalletModalProvider>

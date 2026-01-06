@@ -1,5 +1,6 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import { useEffect } from "react";
 
 export default function showBalance() {
     const { connection } = useConnection();
@@ -8,8 +9,15 @@ export default function showBalance() {
         const balance = await connection.getBalance(wallet.publicKey);
         document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL;
     }
-    getMeUserBalance();
-    return <div>
-        Balance: <span id="balance"></span> SOL
-    </div>
+    useEffect(() => {
+        getMeUserBalance();
+    }, [wallet, connection]);
+    return (
+        <div className="balance-container">
+            <h2>Wallet Balance</h2>
+            <div className="balance-value">
+                <span id="balance">0</span> <span>SOL</span>
+            </div>
+        </div>
+    );
 }
