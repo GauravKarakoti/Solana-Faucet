@@ -1,4 +1,5 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
 // components in react are very similar to creating your own HTML tags
 // The useWallet hook provides the wallet variable inside the Airdrop Component
@@ -9,12 +10,13 @@ export default function Airdrop() {
     const { connection } = useConnection();
     // defining the function inside the component body
     async function sendAirdropToUser() {
-        if (!wallet.publicKey) {
+        const publicKey = wallet.publicKey
+        if (!publicKey) {
             alert("Please connect your wallet first!");
             return;
         }
         const amount = document.getElementById("publicKey").value;
-        await connection.requestAirdrop(wallet.publicKey, amount * 1000000000);
+        await connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL);
         alert("Airdropped SOL");
     }
     return (

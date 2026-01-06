@@ -6,6 +6,7 @@ import {
 } from '@solana/wallet-adapter-react-ui'
 import '@solana/wallet-adapter-react-ui/styles.css'
 import Airdrop from './Airdrop.jsx'
+import ShowBalance from './ShowBalance.jsx'
 // Airdrop
 function App() {
   // create your own rpc url? Alchemy
@@ -16,13 +17,14 @@ function App() {
           <div className="container">
             <header className="header">
               <h1>Solana Faucet</h1>
-              <div className="wallet-buttons">
+              <div style={{width: "100vw", display: "flex", justifyContent: "center"}} className="wallet-buttons">
                 <WalletMultiButton />
                 <WalletDisconnectButton />
               </div>
             </header>
-            <main className="main-content">
+            <main style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "column"}}>
               <Airdrop />
+              <ShowBalance></ShowBalance>
             </main>
           </div>
         </WalletModalProvider>
